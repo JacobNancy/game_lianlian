@@ -1,0 +1,42 @@
+1. scripts/wx目录 ，resources/wx目录 拷贝
+
+2. wx/login/gameWxLoading.fire 设为启动项目的scene （配置图2）
+
+3. wx/config/config.js 中 
+	var loginScene = "gameLoading"; // 登录 scene  
+     设置为原项目的起始scene  
+
+4. 将wx/wxAddlayer.js 放到主游戏Canvas 上 
+
+5. 创建自己的button 事件，排行榜，分享，群分享等， 添加wxAddLyaer.js 的方法 （配置图1）
+
+
+6. 其他 简介 
+*************************
+***  login  share  utils config 目录下的都是全局函数 其他的都是类形式
+***
+*************************
+
+//头部
+	var userOperate = require('./wx/userOperate/userOperate');
+	var share = require('./wx/share/share')
+	var rank = require('./wx/rank/rank')
+// onload 中
+	//用法 rank = new rank();
+	// wx 添加排行榜 rank layer
+        rank.loadRankWidget(self); // 使用 self.rankWidget 作为排行榜界面  默认active 设为 false（其他类似）
+
+
+
+7.存储 
+	主逻辑中 保存分数
+
+            //上传服务器
+            if(cc.sys.platform == cc.sys.WECHAT_GAME){
+                userOperate.setScore(self._grade)
+            }
+
+8.微信打开 创建小游戏 （配置图3）
+
+9.微信平台打开 详情 （配置图4）
+	
